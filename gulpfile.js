@@ -39,6 +39,7 @@ const runner = {
                     pretty: true,
                 })
             )
+            .on("error", (e) => logger.failed("pug", e))
             .pipe(dest(PATH.view.dest, { sourcemaps: "." }))
             .on("error", (e) => logger.failed("write", e))
             .on("end", () => {

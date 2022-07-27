@@ -1,4 +1,10 @@
 extends layout/base
+include mixins/sidebar
+include mixins/title
 
-block body
-    h1 hello worlds
+block contents
+    +sidebar
+    +title("NH RPA Portal")
+    main.w-100.flex-grow-1.mt-5
+        .container
+            h1 메인
