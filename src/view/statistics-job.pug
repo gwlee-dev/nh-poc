@@ -1,0 +1,15 @@
+extends layout/base
+include mixins/title
+include mixins/editor
+include mixins/card
+include mixins/selector
+include mixins/table
+
+block contents
+    include mixins/sidebar
+    +title("업무 수행현황 및 수행시간 집계")
+    main.w-100.flex-grow-1.mt-5
+        .container
+            .vstack.gap-3
+                +table
+                +editor

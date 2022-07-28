@@ -1,0 +1,99 @@
+mixin processCard
+    .col
+        .card(role="button")
+            .card-body 
+                h5.row.gx-1.align-items-center
+                    .col-6.me-auto 프로세스명
+                    .col-6.btn-group
+                        btn.btn.btn-light.btn-sm.p-1 #[small.bi.bi-play-fill.me-1]실행
+                        btn.btn.btn-light.btn-sm.p-1 #[small.bi.bi-pause.me-1]중지
+                .row.gx-1.gy-2.align-items-center.mt-2
+                    .col-6
+                        label.col-form-label.p-0(for="robot-1") 로봇
+                    .col-6
+                        select#robot-1.form-select.form-select-sm(
+                            name="class-1"
+                        )
+                            option(selected="") 선택
+                            option(value="1") One
+                            option(value="2") Two
+                    .col-6
+                        label.col-form-label.p-0(for="robot-1") 스크립트 버전
+                    .col-6
+                        select#robot-1.form-select.form-select-sm(
+                            name="class-1"
+                        )
+                            option(selected="") 선택
+                            option(value="1") One
+                            option(value="2") Two
+
+mixin processEditCard
+    .col
+        .card(role="button")
+            .card-body 
+                h5.hstack.align-items-center
+                    .me-auto 프로세스명
+                    btn.btn.btn-light.btn-sm #[small.bi.bi-pencil.me-1]수정
+                .row.gx-1.gy-2.align-items-center.mt-2
+                    .col-4
+                        span.col-form-label.p-0 등록일
+                    .col-8
+                        span.form-text 2022-07-19 18:29:56
+                    .col-4
+                        span.col-form-label.p-0 로봇그룹
+                    .col-8
+                        span.form-text VM_BOT
+                    .col-4
+                        span.col-form-label.p-0 스크립트
+                    .col-8
+                        span.form-text 스크립트명
+                    .col-4
+                        span.col-form-label.p-0 데이터셋
+                    .col-8
+                        span.form-text 데이터셋명
+
+mixin scriptCard
+    .col
+        .card(role="button")
+            .card-body 
+                h5 스크립트명
+                .row.gx-1.gy-2.align-items-center.mt-2
+                    .col-4
+                        span.col-form-label.p-0(for="registration") 등록일
+                    .col-8
+                        span.form-text 2022-07-19 18:29:56
+                    .col-4
+                        span.col-form-label.p-0(for="version") 버전
+                    .col-8
+                        span.form-text 1
+
+mixin scheduleCard
+    .col
+        .card(role="button")
+            .card-body 
+                h5.hstack.align-items-center(for="scheduleSwitch")
+                    .form-check.form-switch
+                        input#scheduleSwitch.form-check-input(
+                            type="checkbox",
+                            role="switch",
+                            checked=""
+                        )
+                    .me-auto 스케줄명
+                    btn.btn.btn-light.btn-sm #[small.bi.bi-pencil.me-1]수정
+                .row.gx-1.gy-2.align-items-center.mt-2
+                    .col-5
+                        span.col-form-label.p-0(for="robot-1") 프로세스명
+                    .col-7
+                        span.form-text 프로세스명
+                    .col-5
+                        span.col-form-label.p-0(for="robot-1") 다음 실행
+                    .col-7
+                        span.form-text -
+                    .col-5
+                        span.col-form-label.p-0(for="type") 예약 유형
+                    .col-7
+                        span.form-text #[span.badge.bg-secondary 매일] 반복주기 1
+                    .col-5
+                        span.col-form-label.p-0(for="type") 실행 제외
+                    .col-6
+                        span.form-text #[button.btn.badge.bg-dark 미적용]

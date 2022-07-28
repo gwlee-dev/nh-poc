@@ -6,7 +6,7 @@ include mixins/selector
 
 block contents
     include mixins/sidebar
-    +title("업무 수행 및 중지")
+    +title("스케줄 등록 및 관리")
     main.w-100.flex-grow-1.mt-5
         .container
             .vstack.gap-3
@@ -27,11 +27,11 @@ block contents
                     ]
                 +selector(items)
                 .row.row-cols-5.g-3
-                    +processCard
-                    +processCard
-                    +processCard
-                    +processCard
-                    +processCard
-                    +processCard
-                    +processCard
+                    +scheduleCard
+                    +scheduleCard
+                    +scheduleCard
+                    +scheduleCard
+                    +scheduleCard
+                    +scheduleCard
+                    +scheduleCard
                 +editor

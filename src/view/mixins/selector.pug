@@ -1,0 +1,18 @@
+mixin selector(items)
+    .card
+        .card-body
+            .row.g-3
+                each item in items
+                    .col
+                        label.form-label(for=item.id)= item.title
+                        select#project.form-select(name=item.id)
+                            option(selected="") 선택
+                            option(value="1") One
+                            option(value="2") Two
+
+mixin rangeSelector(items)
+    .card
+        .card-body
+            .row.g-3
+                .col
+                    input#date-start(type="text", name="date-start")

@@ -15,6 +15,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1046;
     .sidebar-button {
         width: 4rem;
         height: 4rem;
@@ -22,6 +23,20 @@ body {
         justify-content: center;
         align-items: center;
     }
+}
+
+.sidebar-details {
+    .offcanvas {
+        padding-left: 5rem;
+        .offcanvas-header {
+            height: 5rem;
+        }
+    }
+}
+
+.titlebar {
+    height: 5rem;
+    z-index: 998;
 }
 
 .logo {
@@ -32,6 +47,21 @@ body {
     }
 }
 
-.page-title {
-    height: 5rem;
+.job-twin-buttons {
+    button {
+        &:first-child {
+            border-radius: 0 0 0 $card-border-radius;
+        }
+        &:last-child {
+            border-radius: 0 0 $card-border-radius 0;
+        }
+    }
+}
+
+.cm-editor {
+    outline: none !important;
+}
+
+.table-group-divider {
+    border-top-color: $card-border-color;
 }

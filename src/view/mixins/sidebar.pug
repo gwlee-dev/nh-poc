@@ -1,43 +1,21 @@
-mixin sidebar
-    #sidebarWide.offcanvas.offcanvas-start(
+mixin sidebarBtn(id, icon, title)
+    .btn.btn-light.sidebar-button.d-flex.flex-column.p-0(id=id)
+        i.bi.fs-5(class=icon)
+        small.d-block= title
+
+mixin offcanvas(id, title, contents)
+    .offcanvas.offcanvas-start(
         tabindex="-1",
-        aria-labelledby="sidebarWideLabel"
+        aria-labelledby=`${id}Label`,
+        id=`${id}Offcanvas`
     )
         .offcanvas-header
-            h5#sidebarWideLabel.offcanvas-title Offcanvas
+            h5.offcanvas-title(id=`${id}Label`)= title
             button.btn-close(
                 type="button",
                 data-bs-dismiss="offcanvas",
                 aria-label="Close"
             )
-        .offcanvas-body
-            div
-                | Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-            .dropdown.mt-3
-                button.btn.btn-secondary.dropdown-toggle(
-                    type="button",
-                    data-bs-toggle="dropdown"
-                )
-                    | Dropdown button
-                ul.dropdown-menu
-                    li
-                        a.dropdown-item(href="#") Action
-                    li
-                        a.dropdown-item(href="#") Another action
-                    li
-                        a.dropdown-item(href="#") Something else here
-
-    .sidebar.bg-light.h-100.border-end
-        .logo.p-4
-            a.d-block(href="/")
-                img(src="assets/img/logo.svg")
-        .vstack.gap-2.align-items-center.py-2
-            .btn.btn-light.sidebar-button.d-flex.flex-column.p-0(class=job)
-                i.bi.bi-magic.fs-5
-                small.d-block Job
-            .btn.btn-light.sidebar-button.d-flex.flex-column.p-0(class=job)
-                i.bi.bi-display.fs-5
-                small.d-block 모니터링
-            .btn.btn-light.sidebar-button.d-flex.flex-column.p-0(class=job)
-                i.bi.bi-git.fs-5
-                small.d-block 형상관리
+        .list-group.list-group-flush
+            each content in contents
+                a.list-group-item(href=`${content.href}.html`)= content.text

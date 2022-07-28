@@ -1,0 +1,21 @@
+mixin editor
+    .card
+        .card-body
+            h5.mb-3 API
+            .vstack.gap-4
+                .url
+                    label.form-label(for="select-project") 요청 URL
+                    .input-group
+                        input#api-url.form-control(
+                            type="text",
+                            placeholder="API URL",
+                            name="API URL",
+                            readonly
+                        )
+                        button#button-post.btn.btn-secondary(type="button") POST &rarr;
+                .req
+                    h6 요청 JSON
+                    .req-editor
+                .res
+                    h6 응답 JSON
+                    .res-editor

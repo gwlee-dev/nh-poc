@@ -1,9 +1,8 @@
 extends layout/base
-include mixins/sidebar
 include mixins/title
 
 block contents
-    +sidebar
+    include mixins/sidebar
     +title("NH RPA Portal")
     main.w-100.flex-grow-1.mt-5
         .container

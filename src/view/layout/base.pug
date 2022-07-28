@@ -1,3 +1,5 @@
+include ../mixins/sidebar
+
 doctype html
 html(lang="ko")
     head
@@ -6,6 +8,17 @@ html(lang="ko")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title NH RPA Portal
         link(rel="stylesheet", href="css/nh-poc.css")
-    body.bg-secondary.bg-opacity-10.d-flex.flex-column
+    body.bg-light.d-flex.flex-column
+        .sidebar.bg-light.h-100.border-end
+            .logo.p-4
+                a.d-block(href="/")
+                    img(src="assets/img/logo.svg")
+            .vstack.gap-2.align-items-center.py-2
+                include ../data/menu
+                each menu in menus
+                    +sidebarBtn(menu.id, menu.icon, menu.title)
+        .sidebar-details
+            each menu in menus
+                +offcanvas(menu.id, menu.title, menu.contents)
         block contents
         script(src="js/nh-poc.js") 

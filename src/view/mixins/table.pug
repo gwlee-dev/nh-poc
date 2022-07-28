@@ -1,0 +1,45 @@
+mixin table
+    .card
+        .card-body
+            table.table
+                thead
+                    tr
+                        th(scope="col") 실행ID
+                        th(scope="col") 분류명
+                        th(scope="col") 프로세스
+                        th(scope="col") 로봇
+                        th(scope="col") 스크립트 파일
+                        th(scope="col") 유형
+                        th(scope="col") 요청시간
+                        th(scope="col") 반복 시작일
+                        th(scope="col") 종료 시간
+                        th(scope="col") 상태
+                        th(scope="col") 실행자
+                tbody.table-group-divider
+                    - var n = 0;
+                    while n < 3
+                        - n++;
+                        tr
+                            th(scope="row") 3086
+                            td -
+                            td 프로세스명
+                            td agent_gwlee
+                            td 로봇명
+                            td 시나리오
+                            td 2022-07-25 22:30:00
+                            td 2022-07-26 20:00:46
+                            td 2022-07-26 20:57:17
+                            td #[span.w-100.badge.bg-danger FAIL]
+                            td administrator
+                        tr
+                            th(scope="row") 3086
+                            td -
+                            td 프로세스명
+                            td agent_gwlee
+                            td 로봇명
+                            td 시나리오
+                            td 2022-07-25 22:30:00
+                            td 2022-07-26 20:00:46
+                            td 2022-07-26 20:57:17
+                            td #[span.w-100.badge.bg-success SUCCESS]
+                            td administrator

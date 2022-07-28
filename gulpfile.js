@@ -50,7 +50,10 @@ const runner = {
 
     js: async () => {
         await browserify(`${PATH.js.src}/app.js`, { debug: true })
-            .transform("babelify")
+            .transform("babelify", {
+                presets: ["@babel/preset-env"],
+                sourceType: "module",
+            })
             .on("error", (e) => logger.failed("babelify", e))
             .bundle()
             .on("error", (e) => {
