@@ -98,11 +98,11 @@ mixin scheduleCard
                     +modalButtonGroup(buttons, "col-auto")
                     .hstack.align-items-start
                         h5.col.line-clamp-2.mb-0.me-2 길으면 기차 기차는 빨라 빠르면 비행기 비행기는 높아
-                .row.g-1.align-items-center.mt-2
+                .row.g-1.align-items-start.mt-2
                     .col-5
                         span.col-form-label.p-0(for="robot-1") 프로세스명
                     .col-7
-                        span.form-text 프로세스명
+                        span.form-text.line-clamp-2.mt-0 길으면 기차 기차는 빨라 빠르면 비행기 비행기는 높아
                     .col-5
                         span.col-form-label.p-0(for="robot-1") 다음 실행
                     .col-7
@@ -110,7 +110,7 @@ mixin scheduleCard
                     .col-5
                         span.col-form-label.p-0(for="type") 예약 유형
                     .col-7
-                        span.form-text #[span.badge.bg-secondary 매일] 반복주기 1
+                        span.form-text.line-clamp-2.mt-0 #[span.badge.bg-secondary 매일] 길으면 기차 기차는 빨라 빠르면 비행기 비행기는 높아
                     .col-5
                         span.col-form-label.p-0(for="type") 실행 제외
                     .col-6

@@ -50,10 +50,7 @@ const runner = {
 
     js: async () => {
         await browserify(`${PATH.js.src}/app.js`, { debug: true })
-            .transform("babelify", {
-                presets: ["@babel/preset-env"],
-                sourceType: "module",
-            })
+            .transform("babelify")
             .on("error", (e) => logger.failed("babelify", e))
             .bundle()
             .on("error", (e) => {
@@ -63,8 +60,8 @@ const runner = {
             .pipe(source(`${FILE_NAME}.js`))
             .pipe(buffer())
             .pipe(sourcemaps.init({ loadMaps: true }))
-            .pipe(terser())
-            .on("error", (e) => logger.failed("terser", e))
+            // .pipe(terser())
+            // .on("error", (e) => logger.failed("terser", e))
             .pipe(sourcemaps.write("."))
             .pipe(dest(PATH.js.dest))
             .on("end", () => {

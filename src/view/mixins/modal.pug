@@ -4,11 +4,7 @@ mixin processModal
             .modal-content
                 .modal-header
                     h5#processModalLabel.modal-title 프로세스 관리
-                    button.btn-close(
-                        type="button",
-                        data-bs-dismiss="modal",
-                        aria-label="Close"
-                    )
+                    button.btn-close(type="button", data-bs-dismiss="modal")
                 .modal-body
                     form.vstack.gap-3
                         .card
@@ -85,15 +81,15 @@ mixin scheduleModal
                             label.col-form-label(for="description") 설명
                             textarea#description.form-control
                         .col
-                            label.col-form-label(for="script") 프로세스
-                            select#script.form-select
+                            label.col-form-label(for="process") 프로세스
+                            select#process.form-select
                                 option(selected="") 선택
                                 option(value="1") One
                                 option(value="2") Two
                                 option(value="3") Three
                         .col
-                            label.col-form-label(for="robot") 스크립트
-                            select#robot.form-select
+                            label.col-form-label(for="script") 스크립트
+                            select#script.form-select
                                 option(selected="") 선택
                                 option(value="1") One
                                 option(value="2") Two
@@ -106,26 +102,41 @@ mixin scheduleModal
                                 option(value="2") Two
                                 option(value="3") Three
                         .col
-                            label.col-form-label(for="robot") 로봇 균등분배
-                            select#robot.form-select
+                            label.col-form-label(for="share") 로봇 균등분배
+                            select#share.form-select
                                 option(selected="") 선택
                                 option(value="1") One
                                 option(value="2") Two
                                 option(value="3") Three
                         .col
-                            label.col-form-label(for="robot") 반복 시작일
-                            select#robot.form-select
+                            label.col-form-label(for="start") 반복 시작일
+                            input#start.form-control.datepicker(type="text")
+                        .col
+                            label.col-form-label(for="type") 반복 유형
+                            select#type.form-select
                                 option(selected="") 선택
                                 option(value="1") One
                                 option(value="2") Two
                                 option(value="3") Three
                         .col
-                            label.col-form-label(for="robot") 반복 유형
-                            select#robot.form-select
-                                option(selected="") 선택
-                                option(value="1") One
-                                option(value="2") Two
-                                option(value="3") Three
+                            label.col-form-label(for="dataset") 데이터셋
+                            .input-group
+                                input#dataset.form-control(type="text")
+                                button#button-addon2.btn.btn-secondary(
+                                    type="button",
+                                    data-bs-toggle="modal",
+                                    data-bs-target="#datasetModal"
+                                ) 선택
+                        .col
+                            label.col-form-label(for="result") 결과 데이터셋
+                            .input-group
+                                input#result.form-control(type="text")
+                                button#button-addon2.btn.btn-secondary(
+                                    type="button",
+                                    data-bs-toggle="modal",
+                                    data-bs-target="#resultDatasetModal"
+                                ) 선택
+
                 .modal-footer
                     button.btn.btn-secondary(
                         type="button",
@@ -152,3 +163,129 @@ mixin removeModal
                         data-bs-dismiss="modal"
                     ) 취소
                     button.btn.btn-danger(type="button") 삭제
+
+mixin datasetModal
+    #datasetModal.modal.fade(
+        tabindex="-1",
+        data-bs-keyboard="false",
+        data-bs-backdrop="static"
+    )
+        .modal-dialog.modal-dialog-centered.modal-dialog-scrollable.modal-lg
+            .modal-content
+                .modal-header
+                    h5#datasetModalLabel.modal-title 데이터셋 선택
+                    button.btn-close(
+                        type="button",
+                        data-bs-toggle="modal",
+                        data-bs-target="#scheduleModal"
+                    )
+                .modal-body
+                    .input-group.mb-3
+                        span#basic-addon1.input-group-text 데이터셋
+                        select#script.form-select
+                            option(selected="") 선택
+                            option(value="1") One
+                            option(value="2") Two
+                            option(value="3") Three
+                    .w-100.overflow-auto
+                        +table("checkbox")
+
+                .modal-footer
+                    button.btn.btn-secondary(
+                        type="button",
+                        data-bs-toggle="modal",
+                        data-bs-target="#scheduleModal"
+                    ) 취소
+
+mixin resultDatasetModal
+    #resultDatasetModal.modal.fade(
+        tabindex="-1",
+        data-bs-keyboard="false",
+        data-bs-backdrop="static"
+    )
+        .modal-dialog.modal-dialog-centered.modal-dialog-scrollable.modal-lg
+            .modal-content
+                .modal-header
+                    h5#resultDatasetModalLabel.modal-title 결과 데이터셋 선택
+                    button.btn-close(
+                        type="button",
+                        data-bs-toggle="modal",
+                        data-bs-target="#scheduleModal"
+                    )
+                .modal-body
+                    .w-100.overflow-auto
+                        +table("radio")
+
+                .modal-footer
+                    button.btn.btn-secondary(
+                        type="button",
+                        data-bs-toggle="modal",
+                        data-bs-target="#scheduleModal"
+                    ) 취소
+
+mixin table(type)
+    table.table.table-hover
+        thead
+            tr
+                th(scope="col")
+                th(scope="col") First
+                th(scope="col") Last
+                th(scope="col") Handle
+                th(scope="col") First
+                th(scope="col") Last
+                th(scope="col") Handle
+                th(scope="col") First
+                th(scope="col") Last
+                th(scope="col") Handle
+                th(scope="col") First
+                th(scope="col") Last
+                th(scope="col") Handle
+                th(scope="col") First
+                th(scope="col") Last
+                th(scope="col") Handle
+                th(scope="col") First
+                th(scope="col") Last
+                th(scope="col") Handle
+        tbody.table-group-divider
+            tr
+                th(scope="row")
+                    input#dataset.form-check-input(type=type, name="dataset")
+                td Mark
+                td Otto
+                td @mdo
+                td Mark
+                td Otto
+                td @mdo
+                td Mark
+                td Otto
+                td @mdo
+                td Mark
+                td Otto
+                td @mdo
+                td Mark
+                td Otto
+                td @mdo
+                td Mark
+                td Otto
+                td @mdo
+            tr
+                th(scope="row")
+                    input#dataset.form-check-input(type=type, name="dataset")
+                td Jacob
+                td Thornton
+                td @fat
+                td Jacob
+                td Thornton
+                td @fat
+                td Jacob
+                td Thornton
+                td @fat
+                td Jacob
+                td Thornton
+                td @fat
+                td Jacob
+                td Thornton
+                td @fat
+                td Jacob
+                td Thornton
+                td @fat
