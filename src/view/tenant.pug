@@ -1,0 +1,47 @@
+extends layout/base
+include mixins/title
+include mixins/editor
+include mixins/card
+include mixins/selector
+
+block contents
+    include mixins/sidebar
+    +title("로봇 라이선스 운영현황 조회")
+    main.w-100.flex-grow-1.mt-5
+        .container
+            .vstack.gap-3
+                .row.row-cols-3.status-cards.g-3
+                    .col
+                        .card.h-100
+                            .card-body.d-flex.align-items-center
+                                h5.mb-0.me-auto 트레이너 사용 수
+                                h4.mb-0.fw-bold 50
+                    .col
+                        .card.h-100
+                            .card-body.d-flex.align-items-center
+                                h5.mb-0.me-auto 동시 로봇 연결 수
+                                h4.mb-0.fw-bold 50
+                    .col
+                        .card.h-100
+                            .card-body.d-flex.align-items-center
+                                h5.mb-0.me-auto 동시 실행 로봇 수
+                                h4.mb-0.fw-bold 50
+                    .col
+                        .card.h-100
+                            .card-body.d-flex.align-items-center
+                                h5.mb-0.me-auto 사용 기간
+                                h6.mb-0.text-end
+                                    span.fw-bold 2021-11-09 00:00:00
+                                    span.fw-bold.d-block ~ 2023-12-31 23:59:59
+                    .col
+                        .card.h-100
+                            .card-body.d-flex.align-items-center
+                                h5.mb-0.me-auto 버전
+                                h5.mb-0.fw-bold AutomateOne 3.0 ibizbot Manager
+                    .col
+                        .card.h-100
+                            .card-body.d-flex.align-items-center
+                                h5.mb-0.me-auto 빌드 번호
+                                h5.mb-0.fw-bold 3.600.10.6.202200701
+
+                +editor

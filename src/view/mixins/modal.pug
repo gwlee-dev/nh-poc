@@ -1,0 +1,154 @@
+mixin processModal
+    #processModal.modal.fade(tabindex="-1", data-bs-backdrop="static")
+        .modal-dialog.modal-dialog-centered.modal-lg
+            .modal-content
+                .modal-header
+                    h5#processModalLabel.modal-title 프로세스 관리
+                    button.btn-close(
+                        type="button",
+                        data-bs-dismiss="modal",
+                        aria-label="Close"
+                    )
+                .modal-body
+                    form.vstack.gap-3
+                        .card
+                            .card-body
+                                .row
+                                    -
+                                        var items = [
+                                            {
+                                                id: "project",
+                                                title: "프로젝트"
+                                            },
+                                            {
+                                                id: "class-1",
+                                                title: "분류 1"
+                                            },
+                                            {
+                                                id: "class-2",
+                                                title: "분류 2"
+                                            },
+                                        ]
+                                    each item in items
+                                        .col
+                                            label.form-label(for=item.id)= item.title
+                                            select#project.form-select.form-select-sm(
+                                                name=item.id
+                                            )
+                                                option(selected="") 선택
+                                                option(value="1") One
+                                                option(value="2") Two
+                        .wrap
+                            label.col-form-label(for="name") 프로세스명
+                            input#name.form-control(type="text")
+                        .wrap
+                            label.col-form-label(for="description") 설명
+                            textarea#description.form-control
+                        .wrap
+                            label.col-form-label(for="script") 스크립트
+                            select#script.form-select
+                                option(selected="") 선택
+                                option(value="1") One
+                                option(value="2") Two
+                                option(value="3") Three
+                        .wrap
+                            label.col-form-label(for="robot") 로봇그룹
+                            select#robot.form-select
+                                option(selected="") 선택
+                                option(value="1") One
+                                option(value="2") Two
+                                option(value="3") Three
+                .modal-footer
+                    button.btn.btn-secondary(
+                        type="button",
+                        data-bs-dismiss="modal"
+                    ) 닫기
+                    button.btn.btn-primary(type="button") 저장
+
+mixin scheduleModal
+    #scheduleModal.modal.fade(tabindex="-1", data-bs-backdrop="static")
+        .modal-dialog.modal-dialog-centered.modal-lg
+            .modal-content
+                .modal-header
+                    h5#scheduleModalLabel.modal-title 스케줄 관리
+                    button.btn-close(
+                        type="button",
+                        data-bs-dismiss="modal",
+                        aria-label="Close"
+                    )
+                .modal-body
+                    form.row.row-cols-2.g-3
+                        .col-12
+                            label.col-form-label(for="name") 예약명
+                            input#name.form-control(type="text")
+                        .col-12
+                            label.col-form-label(for="description") 설명
+                            textarea#description.form-control
+                        .col
+                            label.col-form-label(for="script") 프로세스
+                            select#script.form-select
+                                option(selected="") 선택
+                                option(value="1") One
+                                option(value="2") Two
+                                option(value="3") Three
+                        .col
+                            label.col-form-label(for="robot") 스크립트
+                            select#robot.form-select
+                                option(selected="") 선택
+                                option(value="1") One
+                                option(value="2") Two
+                                option(value="3") Three
+                        .col
+                            label.col-form-label(for="robot") 로봇
+                            select#robot.form-select
+                                option(selected="") 선택
+                                option(value="1") One
+                                option(value="2") Two
+                                option(value="3") Three
+                        .col
+                            label.col-form-label(for="robot") 로봇 균등분배
+                            select#robot.form-select
+                                option(selected="") 선택
+                                option(value="1") One
+                                option(value="2") Two
+                                option(value="3") Three
+                        .col
+                            label.col-form-label(for="robot") 반복 시작일
+                            select#robot.form-select
+                                option(selected="") 선택
+                                option(value="1") One
+                                option(value="2") Two
+                                option(value="3") Three
+                        .col
+                            label.col-form-label(for="robot") 반복 유형
+                            select#robot.form-select
+                                option(selected="") 선택
+                                option(value="1") One
+                                option(value="2") Two
+                                option(value="3") Three
+                .modal-footer
+                    button.btn.btn-secondary(
+                        type="button",
+                        data-bs-dismiss="modal"
+                    ) 닫기
+                    button.btn.btn-primary(type="button") 저장
+
+mixin removeModal
+    #removeModal.modal.fade(tabindex="-1")
+        .modal-dialog.modal-dialog-centered
+            .modal-content
+                .modal-header
+                    h5#removeModalLabel.modal-title 삭제
+                    button.btn-close(
+                        type="button",
+                        data-bs-dismiss="modal",
+                        aria-label="Close"
+                    )
+                .modal-body
+                    p 정말로 삭제하시겠습니까?
+                .modal-footer
+                    button.btn.btn-secondary(
+                        type="button",
+                        data-bs-dismiss="modal"
+                    ) 취소
+                    button.btn.btn-danger(type="button") 삭제

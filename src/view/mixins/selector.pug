@@ -1,4 +1,4 @@
-mixin selector(items)
+mixin selector(items, addBtn)
     .card
         .card-body
             .row.g-3
@@ -9,10 +9,26 @@ mixin selector(items)
                             option(selected="") 선택
                             option(value="1") One
                             option(value="2") Two
-
-mixin rangeSelector(items)
+                if addBtn
+                    .col-auto.d-flex
+                        button.btn.btn-primary(
+                            data-bs-toggle="modal",
+                            data-bs-target=addBtn
+                        ) 신규 등록
+.
+mixin rangeSelector
     .card
         .card-body
             .row.g-3
-                .col
-                    input#date-start(type="text", name="date-start")
+                .col 
+                    label.form-label(for="end-date") 날짜 범위 지정
+                    .input-group.date-range-wrap
+                        input#start-date.form-control(
+                            type="text",
+                            placeholder="시작 일자"
+                        )
+                        span.input-group-text ~
+                        input#end-date.form-control(
+                            type="text",
+                            placeholder="종료 일자"
+                        )

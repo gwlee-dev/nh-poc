@@ -3,6 +3,7 @@ include mixins/title
 include mixins/editor
 include mixins/card
 include mixins/selector
+include mixins/modal
 
 block contents
     include mixins/sidebar
@@ -25,7 +26,7 @@ block contents
                             title: "분류 2"
                         },
                     ]
-                +selector(items)
+                +selector(items, "#scheduleModal")
                 .row.row-cols-5.g-3
                     +scheduleCard
                     +scheduleCard
@@ -35,3 +36,5 @@ block contents
                     +scheduleCard
                     +scheduleCard
                 +editor
+        +scheduleModal
+        +removeModal

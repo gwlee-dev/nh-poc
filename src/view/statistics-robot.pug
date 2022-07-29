@@ -8,8 +8,10 @@ include mixins/table
 block contents
     include mixins/sidebar
     +title("로봇 수행현황 및 수행시간 집계")
+        span hi
     main.w-100.flex-grow-1.mt-5
         .container
             .vstack.gap-3
+                +rangeSelector
                 +table
                 +editor

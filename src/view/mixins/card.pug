@@ -1,13 +1,35 @@
+mixin dropdownButtons(buttons)
+    .dropdown
+        button.btn.btn-light.btn-sm(type="button", data-bs-toggle="dropdown") #[i.bi.bi-three-dots-vertical]
+        ul.dropdown-menu.dropdown-menu-end
+            each button in buttons
+                li
+                    button.dropdown-item(href=button.href)
+                        small.bi.me-2(class=button.icon)
+                        span= button.text
+
+mixin buttonGroup(buttons, option)
+    .btn-group(class=option)
+        each button in buttons
+            button.btn.btn-light.btn-sm(href=button.href) #[small.bi(class=button.icon)]
+
+mixin modalButtonGroup(buttons, option)
+    .btn-group(class=option)
+        each button in buttons
+            button.btn.btn-light.btn-sm(
+                data-bs-toggle="modal",
+                data-bs-target=button.target
+            ) #[small.bi(class=button.icon)]
+
 mixin processCard
     .col
-        .card(role="button")
+        .card
             .card-body 
-                h5.row.gx-1.align-items-center
-                    .col-6.me-auto 프로세스명
-                    .col-6.btn-group
-                        btn.btn.btn-light.btn-sm.p-1 #[small.bi.bi-play-fill.me-1]실행
-                        btn.btn.btn-light.btn-sm.p-1 #[small.bi.bi-pause.me-1]중지
-                .row.gx-1.gy-2.align-items-center.mt-2
+                .hstack.align-items-start
+                    h5.col.line-clamp-2.mb-0 길으면 기차 기차는 빨라 빠르면 비행기 비행기는 높아
+                    - var buttons = [{ icon: "bi-play-fill", href: "#" }, { icon: "bi-stop-fill", href: "#" }];
+                    +buttonGroup(buttons, "col-auto")
+                .row.g-2.align-items-center.mt-2
                     .col-6
                         label.col-form-label.p-0(for="robot-1") 로봇
                     .col-6
@@ -29,12 +51,17 @@ mixin processCard
 
 mixin processEditCard
     .col
-        .card(role="button")
+        .card
             .card-body 
-                h5.hstack.align-items-center
-                    .me-auto 프로세스명
-                    btn.btn.btn-light.btn-sm #[small.bi.bi-pencil.me-1]수정
-                .row.gx-1.gy-2.align-items-center.mt-2
+                .hstack.align-items-start
+                    h5.col.line-clamp-2.mb-0 길으면 기차 기차는 빨라 빠르면 비행기 비행기는 높아
+                    -
+                        var buttons = [
+                                { icon: "bi-pencil-fill", target: "#processModal", text: "수정" },
+                                { icon: "bi-trash-fill", target: "#removeModal", text: "삭제" }
+                            ];
+                    +modalButtonGroup(buttons, "col-auto")
+                .row.g-2.align-items-center.mt-2
                     .col-4
                         span.col-form-label.p-0 등록일
                     .col-8
@@ -52,35 +79,26 @@ mixin processEditCard
                     .col-8
                         span.form-text 데이터셋명
 
-mixin scriptCard
-    .col
-        .card(role="button")
-            .card-body 
-                h5 스크립트명
-                .row.gx-1.gy-2.align-items-center.mt-2
-                    .col-4
-                        span.col-form-label.p-0(for="registration") 등록일
-                    .col-8
-                        span.form-text 2022-07-19 18:29:56
-                    .col-4
-                        span.col-form-label.p-0(for="version") 버전
-                    .col-8
-                        span.form-text 1
-
 mixin scheduleCard
     .col
-        .card(role="button")
+        .card
             .card-body 
-                h5.hstack.align-items-center(for="scheduleSwitch")
-                    .form-check.form-switch
+                .row.gx-0.gy-2.align-items-center(for="scheduleSwitch")
+                    .col-auto.form-check.form-switch.me-auto
                         input#scheduleSwitch.form-check-input(
                             type="checkbox",
                             role="switch",
                             checked=""
                         )
-                    .me-auto 스케줄명
-                    btn.btn.btn-light.btn-sm #[small.bi.bi-pencil.me-1]수정
-                .row.gx-1.gy-2.align-items-center.mt-2
+                    -
+                        var buttons = [
+                                { icon: "bi-pencil-fill", target: "#scheduleModal", text: "수정" },
+                                { icon: "bi-trash-fill", target: "#removeModal", text: "삭제" }
+                            ];
+                    +modalButtonGroup(buttons, "col-auto")
+                    .hstack.align-items-start
+                        h5.col.line-clamp-2.mb-0.me-2 길으면 기차 기차는 빨라 빠르면 비행기 비행기는 높아
+                .row.g-1.align-items-center.mt-2
                     .col-5
                         span.col-form-label.p-0(for="robot-1") 프로세스명
                     .col-7
