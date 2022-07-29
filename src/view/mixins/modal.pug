@@ -54,6 +54,25 @@ mixin processModal
                                 option(value="1") One
                                 option(value="2") Two
                                 option(value="3") Three
+                        .row
+                            .col
+                                label.col-form-label(for="dataset") 데이터셋
+                                .input-group
+                                    input#dataset.form-control(type="text")
+                                    button#button-addon2.btn.btn-secondary(
+                                        type="button",
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#datasetModal"
+                                    ) 선택
+                            .col
+                                label.col-form-label(for="result") 결과 데이터셋
+                                .input-group
+                                    input#result.form-control(type="text")
+                                    button#button-addon2.btn.btn-secondary(
+                                        type="button",
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#resultDatasetModal"
+                                    ) 선택
                 .modal-footer
                     button.btn.btn-secondary(
                         type="button",
@@ -118,25 +137,6 @@ mixin scheduleModal
                                 option(value="1") One
                                 option(value="2") Two
                                 option(value="3") Three
-                        .col
-                            label.col-form-label(for="dataset") 데이터셋
-                            .input-group
-                                input#dataset.form-control(type="text")
-                                button#button-addon2.btn.btn-secondary(
-                                    type="button",
-                                    data-bs-toggle="modal",
-                                    data-bs-target="#datasetModal"
-                                ) 선택
-                        .col
-                            label.col-form-label(for="result") 결과 데이터셋
-                            .input-group
-                                input#result.form-control(type="text")
-                                button#button-addon2.btn.btn-secondary(
-                                    type="button",
-                                    data-bs-toggle="modal",
-                                    data-bs-target="#resultDatasetModal"
-                                ) 선택
-
                 .modal-footer
                     button.btn.btn-secondary(
                         type="button",
@@ -177,7 +177,7 @@ mixin datasetModal
                     button.btn-close(
                         type="button",
                         data-bs-toggle="modal",
-                        data-bs-target="#scheduleModal"
+                        data-bs-target="#processModal"
                     )
                 .modal-body
                     .input-group.mb-3
@@ -194,8 +194,9 @@ mixin datasetModal
                     button.btn.btn-secondary(
                         type="button",
                         data-bs-toggle="modal",
-                        data-bs-target="#scheduleModal"
+                        data-bs-target="#processModal"
                     ) 취소
+                    button.btn.btn-primary(type="button") 선택
 
 mixin resultDatasetModal
     #resultDatasetModal.modal.fade(
@@ -210,7 +211,7 @@ mixin resultDatasetModal
                     button.btn-close(
                         type="button",
                         data-bs-toggle="modal",
-                        data-bs-target="#scheduleModal"
+                        data-bs-target="#processModal"
                     )
                 .modal-body
                     .w-100.overflow-auto
@@ -220,8 +221,9 @@ mixin resultDatasetModal
                     button.btn.btn-secondary(
                         type="button",
                         data-bs-toggle="modal",
-                        data-bs-target="#scheduleModal"
+                        data-bs-target="#processModal"
                     ) 취소
+                    button.btn.btn-primary(type="button") 선택
 
 mixin table(type)
     table.table.table-hover
