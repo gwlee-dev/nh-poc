@@ -1,0 +1,47 @@
+/*
+ @preserve
+ bstreeview.css
+ Version: 1.2.0
+ Authors: Sami CHNITER <sami.chniter@gmail.com>
+ Copyright 2020
+ License: Apache License 2.0
+ Project: https://github.com/chniter/bstreeview
+ Project: https://github.com/gwlee-dev/vanillajs-bs5treeview (vanilla js)
+*/
+
+.bstreeview {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    overflow: hidden;
+
+    .list-group.collapsing {
+        border-radius: 0 !important;
+    }
+
+    .list-group-item {
+        border-radius: 0;
+        border-width: 1px 0 0 0;
+    }
+
+    & > .list-group-item:first-child {
+        border-top-width: 0;
+    }
+
+    .state-icon {
+        margin-right: 0.5rem;
+        width: 0.75rem;
+        text-align: center;
+    }
+
+    .state-icon::before {
+        transition: transform 0.1s ease-in-out;
+    }
+
+    .collapsed > .state-icon::before {
+        transform: rotate(90deg);
+    }
+
+    .state-icon,
+    .item-icon {
+        margin-right: 0.5rem;
+    }
+}

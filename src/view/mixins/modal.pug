@@ -80,6 +80,181 @@ mixin processModal
                     ) 닫기
                     button.btn.btn-primary(type="button") 저장
 
+mixin scriptModal
+    #scriptModal.modal.fade(tabindex="-1", data-bs-backdrop="static")
+        .modal-dialog.modal-dialog-centered.modal-lg
+            .modal-content
+                .modal-header
+                    h5#scriptModalLabel.modal-title 스크립트 등록
+                    button.btn-close(type="button", data-bs-dismiss="modal")
+                .modal-body
+                    form.vstack.gap-3
+                        .card
+                            .card-body
+                                .row
+                                    -
+                                        var items = [
+                                            {
+                                                id: "project",
+                                                title: "프로젝트"
+                                            },
+                                            {
+                                                id: "class-1",
+                                                title: "분류 1"
+                                            },
+                                            {
+                                                id: "class-2",
+                                                title: "분류 2"
+                                            },
+                                        ]
+                                    each item in items
+                                        .col
+                                            label.form-label(for=item.id)= item.title
+                                            select#project.form-select.form-select-sm(
+                                                name=item.id
+                                            )
+                                                option(selected="") 선택
+                                                option(value="1") One
+                                                option(value="2") Two
+                        .wrap
+                            label.col-form-label(for="name") 프로세스명
+                            input#name.form-control(type="text")
+                        .wrap
+                            label.col-form-label(for="description") 설명
+                            textarea#description.form-control
+                        .wrap
+                            label.col-form-label(for="script") 스크립트
+                            select#script.form-select
+                                option(selected="") 선택
+                                option(value="1") One
+                                option(value="2") Two
+                                option(value="3") Three
+                        .wrap
+                            label.col-form-label(for="robot") 로봇그룹
+                            select#robot.form-select
+                                option(selected="") 선택
+                                option(value="1") One
+                                option(value="2") Two
+                                option(value="3") Three
+                        .row
+                            .col
+                                label.col-form-label(for="dataset") 데이터셋
+                                .input-group
+                                    input#dataset.form-control(type="text")
+                                    button#button-addon2.btn.btn-secondary(
+                                        type="button",
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#datasetModal"
+                                    ) 선택
+                            .col
+                                label.col-form-label(for="result") 결과 데이터셋
+                                .input-group
+                                    input#result.form-control(type="text")
+                                    button#button-addon2.btn.btn-secondary(
+                                        type="button",
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#resultDatasetModal"
+                                    ) 선택
+                .modal-footer
+                    button.btn.btn-secondary(
+                        type="button",
+                        data-bs-dismiss="modal"
+                    ) 닫기
+                    button.btn.btn-primary(type="button") 저장
+
+mixin deployModal
+    #deployModal.modal.fade(tabindex="-1", data-bs-backdrop="static")
+        .modal-dialog.modal-dialog-centered.modal-lg
+            .modal-content
+                .modal-header
+                    h5#deployModalLabel.modal-title 배포
+                    button.btn-close(type="button", data-bs-dismiss="modal")
+                .modal-body.vstack.gap-3
+                    form.vstack.gap-3
+                        .row.g-3
+                            .col-12 
+                                label.col-form-label(for="name") 제목
+                                input#name.form-control(type="text")
+                            .col
+                                label.col-form-label 파일
+                                input#file.form-control(type="file")
+                            .col
+                                label.col-form-label 설명
+                                input#description.form-control(type="text")
+                            .col-auto.d-flex.align-items-end
+                                button.btn.btn-secondary(type="button") 추가
+
+                    // 둘중에 하나만 표시
+                    .wrap
+                        span.col-form-label 파일 목록
+                        .card.mt-2
+                            .card-body
+                                span 등록된 파일이 없습니다.
+
+                    .wrap
+                        span.col-form-label 파일 목록
+                        .card.mt-2
+                            .card-body
+                                table.table.file-list.w-100.mw-100
+                                    thead
+                                        tr
+                                            th(scope="col") #
+                                            th.filename(scope="col") 파일명
+                                            th.description(scope="col") 설명
+                                            th.remove(scope="col") 삭제
+                                    tbody.table-group-divider
+                                        tr
+                                            th(scope="row") 1
+                                            td.filename 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무우궁화 사암천리~~
+                                            td.description 백두산과 동해물이 다르고 말도록 보우님이 하느하사 만세나라 우리 무궁무궁
+                                            td.remove
+                                                button.btn.btn-sm.btn-light #[i.bi.bi-x-lg.me-1]삭제
+                                        tr
+                                            th(scope="row") 2
+                                            td.filename 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무우궁화 사암천리~~
+                                            td.description 백두산과 동해물이 다르고 말도록 보우님이 하느하사 만세나라 우리 무궁무궁
+                                            td.remove
+                                                button.btn.btn-sm.btn-light #[i.bi.bi-x-lg.me-1]삭제
+                    // -----------------
+
+                .modal-footer
+                    button.btn.btn-secondary(
+                        type="button",
+                        data-bs-dismiss="modal"
+                    ) 취소
+                    button.btn.btn-primary(type="button") 배포
+                    button.btn.btn-warning(
+                        type="button",
+                        data-bs-toggle="modal",
+                        data-bs-target="#emergencyModal"
+                    ) 긴급 배포
+
+mixin emergencyModal
+    #emergencyModal.modal.fade(
+        tabindex="-1",
+        data-bs-keyboard="false",
+        data-bs-backdrop="static"
+    )
+        .modal-dialog.modal-dialog-centered
+            .modal-content
+                .modal-header
+                    h5#emergencyModalLabel.modal-title 긴급 배포
+                    button.btn-close(
+                        type="button",
+                        data-bs-dismiss="modal",
+                        aria-label="Close"
+                    )
+                .modal-body
+                    p 긴급 배포 시 해당 스크립트를 실행중인 프로세스가 #[strong 중지]되며, #[br] 이후 긴급 배포한 파일이 적용되어 실행됩니다.
+                    p 진행하시겠습니까?
+                .modal-footer
+                    button.btn.btn-secondary(
+                        type="button",
+                        data-bs-dismiss="modal",
+                        aria-label="Close"
+                    ) 취소
+                    button.btn.btn-danger(type="button") 긴급 배포
+
 mixin scheduleModal
     #scheduleModal.modal.fade(tabindex="-1", data-bs-backdrop="static")
         .modal-dialog.modal-dialog-centered.modal-lg
@@ -291,3 +466,26 @@ mixin table(type)
                 td Jacob
                 td Thornton
                 td @fat
+
+mixin passwordModal
+    #passwordModal.modal.fade(tabindex="-1")
+        .modal-dialog.modal-dialog-centered
+            .modal-content
+                .modal-header
+                    h5#passwordModalLabel.modal-title 비밀번호 입력
+                    button.btn-close(
+                        type="button",
+                        data-bs-dismiss="modal",
+                        aria-label="Close"
+                    )
+                .modal-body
+                    input#password.form-control(type="password")
+                .modal-footer
+                    button.btn.btn-secondary(
+                        type="button",
+                        data-bs-dismiss="modal"
+                    ) 취소
+                    button.btn.btn-primary(
+                        type="button",
+                        onclick="window.location=\"credential-detail.html\""
+                    ) 확인

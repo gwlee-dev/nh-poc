@@ -23,7 +23,7 @@ mixin modalButtonGroup(buttons, option)
 
 mixin processCard
     .col
-        .card
+        .card.h-100
             .card-body 
                 .hstack.align-items-start
                     h5.col.line-clamp-2.mb-0 길으면 기차 기차는 빨라 빠르면 비행기 비행기는 높아
@@ -51,7 +51,7 @@ mixin processCard
 
 mixin processEditCard
     .col
-        .card
+        .card.h-100
             .card-body 
                 .hstack.align-items-start
                     h5.col.line-clamp-2.mb-0 길으면 기차 기차는 빨라 빠르면 비행기 비행기는 높아
@@ -79,9 +79,54 @@ mixin processEditCard
                     .col-8
                         span.form-text 데이터셋명
 
+mixin deployCard
+    .col
+        .card.h-100
+            .card-body
+                .hstack.align-items-start.mb-3
+                    h5.col.line-clamp-2.mb-0 길으면 기차 기차는 빨라 빠르면 비행기 비행기는 높아
+                    button.btn.btn-sm.btn-light(
+                        data-bs-toggle="modal",
+                        data-bs-target="#deployModal"
+                    ) #[i.bi.bi-box.me-1]배포
+                span.col-form-label 파일:
+                .line-clamp-2.hstack.w-100
+                    span.d-block.form-text 30_TR_02.zip
+                    span.d-block.form-text 30_TR_02.zip
+                    span.d-block.form-text 30_TR_02.zip
+                    span.d-block.form-text 30_TR_02.zip
+
+mixin credentialCard
+    .col
+        .card.h-100
+            .card-body
+                .hstack.align-items-start.mb-3
+                    h5.col.line-clamp-2.mb-0 길으면 기차 기차는 빨라 빠르면 비행기 비행기는 높아
+                    button.btn.btn.btn-light.ms-1(
+                        data-bs-toggle="modal",
+                        data-bs-target="#passwordModal"
+                    )
+                        i.bi.bi-chevron-right
+                .row.g-0.align-items-center.mt-2
+                    .col-4
+                        span.col-form-label.p-0 작성자
+                    .col-8
+                        span.form-text gwlee (이건우)
+                    .col-4
+                        span.col-form-label.p-0 등록일
+                    .col-8
+                        span.form-text 2022-07-19 18:29:56
+                    .col-12.mt-1
+                        span.col-form-label 파일:
+                        .line-clamp-2.hstack.w-100
+                            span.d-block.form-text 30_TR_02.zip
+                            span.d-block.form-text 30_TR_02.zip
+                            span.d-block.form-text 30_TR_02.zip
+                            span.d-block.form-text 30_TR_02.zip
+
 mixin scheduleCard
     .col
-        .card
+        .card.h-100
             .card-body 
                 .row.gx-0.gy-2.align-items-center(for="scheduleSwitch")
                     .col-auto.form-check.form-switch.me-auto

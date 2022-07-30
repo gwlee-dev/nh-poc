@@ -79,12 +79,39 @@ body {
 }
 
 .line-clamp-2 {
+    --line-clamp: 2;
     width: 6rem;
     text-overflow: ellipsis;
     overflow: hidden;
-    word-break: break-word;
+    word-break: break-all;
 
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: var(--line-clamp);
     -webkit-box-orient: vertical;
+}
+
+.table.file-list {
+    width: 100%;
+    td {
+        max-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: middle;
+    }
+    [scope="row"] {
+        max-width: 2rem;
+    }
+    .filename {
+        width: 30%;
+    }
+    .description {
+        width: 70%;
+    }
+    .remove {
+        max-width: 5rem;
+        button {
+            width: 100%;
+        }
+    }
 }

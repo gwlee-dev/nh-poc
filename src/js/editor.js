@@ -14,8 +14,8 @@ const resEditor = new EditorView({
 window.reqEditor = reqEditor;
 window.resEditor = resEditor;
 
-window.reqGet = () => reqEditor.state.doc.toString();
-window.resGet = () => resEditor.state.doc.toString();
+window.reqGet = () => reqEditor.state.doc.text.join("");
+window.resGet = () => resEditor.state.doc.text.join("");
 
 window.reqSet = (text) =>
     reqEditor.dispatch({

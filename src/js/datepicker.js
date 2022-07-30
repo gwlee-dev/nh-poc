@@ -5,7 +5,7 @@ import { AmpPlugin } from "@easepick/amp-plugin";
 const range = document.querySelectorAll(".date-range-wrap");
 const datepicker = document.querySelectorAll(".datepicker");
 const pickerOption = {
-    css: ["https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.0/dist/index.css"],
+    css: ["/assets/easepick.css"],
     zIndex: 10,
     AmpPlugin: {
         dropdown: {
